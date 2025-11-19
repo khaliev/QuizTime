@@ -7,8 +7,67 @@
     <title>QuizTime</title>
   </head>
   <body>
-    <h1>Welcome to QuizTime!</h1>
-    <p>Your ultimate destination for fun and challenging quizzes.</p>
-    <a href="quizzes.html">Start Quizzing Now!</a>
+    <div class="container">
+      <!-- START Screen -->
+      <!-- 'screen active' means this is the visible screen at page load -->
+      <!-- JS will remove 'active' here and add it to other screens when switching -->
+      <div class="screen active" id="start-screen">
+        <h1>Welcome to QuizTime!</h1>
+        <p>Your ultimate destination for fun and challenging quizzes.</p>
+        <!-- JS will listen for click on this button to hide start screen and show quiz screen -->
+        <button id="start-btn">Start Quizzing Now!</button>
+      </div>
+      <!-- END of Start Screen-->
+
+      <!-- QUIZ Screen -->
+      <!-- Initially hidden (no 'active' class). JS will add 'active' when quiz starts -->
+      <div class="screen" id="quiz-screen">
+        <div class="quiz-header">
+          <!-- This H2 text will be replaced dynamically with the current question -->
+          <h2 id="question-text">Question goes here</h2>
+
+          <div class="quiz-info">
+            <!-- JS updates 'current-question' span with the current question number -->
+            <!-- The second span (total questions) should have an id for JS to update -->
+            <p>
+              Question <span id="current-question">1</span> of
+              <span id="total-questions">5</span>
+            </p>
+            <p>
+              <!-- JS updates score after each correct answer -->
+              Score: <span id="score">0</span>
+            </p>
+          </div>
+
+          <!-- Answer buttons will be created and injected here by JS -->
+        </div>
+        <div class="answers-container" id="answers-container"></div>
+      </div>
+
+      <!-- Progress bar -->
+      <!-- JS will adjust the width of #progress dynamically based on quiz progress -->
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <!-- END of QUIZ Screen -->
+
+      <!-- RESULT Screen -->
+      <!-- Hidden until quiz ends. JS will add 'active' to show it -->
+      <div id="result-screen" class="screen">
+        <h1>Quiz Results</h1>
+        <div class="result-info">
+          <!-- JS updates 'final-score' and 'maximum-score' -->
+          <p>
+            You scored <span id="final-score">0</span> out of
+            <span id="maximum-score">5</span>
+          </p>
+          <!-- JS can replace this message depending on performance -->
+          <div class="result-message">Good job!</div>
+        </div>
+        <!-- JS listens for click to restart quiz: reset score, reset progress, show start screen again -->
+        <button id="restart-btn">Restart Quiz</button>
+      </div>
+      <!-- END of RESULT Screen -->
+    </div>
   </body>
 </html>
