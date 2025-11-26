@@ -159,3 +159,21 @@ button {
 button:hover {
   background-color: #d45b28;
 }
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 500px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .quiz-header {
+    /* when we hit 500px width and below, implement the next styles */
+    .screen {
+      padding: 1rem;
+    }
+
+    #start-screen h1 {
+      font-size: 2rem;
+    }
+  }
