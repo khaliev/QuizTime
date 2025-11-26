@@ -46,6 +46,11 @@ body {
   color: #ff9c11;
 }
 
+#start-screen p {
+  margin-bottom: 30px;
+  color: #555;
+  font-size: 1.2rem;
+}
 .quiz-header {
   color: #333;
   margin-bottom: 1.5rem;
@@ -59,6 +64,8 @@ body {
   margin-bottom: 10px;
   color: #555;
 }
+
+/* ANSWER BUTTONS */
 
 .answers-container {
   display: flex;
@@ -92,4 +99,63 @@ body {
   background-color: #fbfbfb;
   border-color: #e79a9a;
   color: #d9534f;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e36666;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background-color: #56cf94;
+  transition: width 0.3s ease;
+}
+
+/* RESULT SCREEN */
+
+#result-screen h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.result-info {
+  background-color: #eadbc8;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+.result-info p {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#result-message {
+  font-size: 1.5rem;
+  color: #ff9c11;
+  font-weight: 600;
+}
+
+button {
+  background-color: #ff9c11;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d45b28;
 }
