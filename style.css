@@ -1,125 +1,128 @@
-/* Basic reset*/
+/* Basic reset - Remove default browser margins, padding, and set box-sizing */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Makes width/height calculations easier - includes padding/borders */
 }
 
+/* Body styling - Create a centered, full-height container with background */
 body {
-  background-color: rgb(217, 217, 202);
+  background-color: rgb(217, 217, 202); /* Soft beige background color */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  min-height: 100vh; /* Takes full viewport height */
+  padding: 1rem; /* Adds space on mobile devices */
   font-family: sans-serif;
 }
 
 .container {
   background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  width: 100%;
+  padding: 2rem; /* Internal spacing inside the container */
+  border-radius: 1rem; /* Rounded corners for modern look */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 600px; /* Prevents container from getting too wide on large screens */
+  width: 100%; /* Responsive - takes full width on small screens */
   overflow: hidden;
   position: relative;
 }
 
-/* SCREENS */
+/* SCREENS - Hide/show different quiz sections */
 
 .screen {
-  display: none;
+  display: none; /* Hide all screens by default */
   padding: 2rem;
   text-align: center;
 }
 
 .screen.active {
-  display: block;
+  display: block; /* Only show the active screen */
 }
 
-/* START SCREEN */
+/* START SCREEN - Welcome page styling */
 
 #start-screen h1 {
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #ff9c11;
+  color: #ff9c11; /* Orange accent color for brand */
 }
 
 #start-screen p {
   margin-bottom: 30px;
-  color: #555;
+  color: #555; /* Dark gray for readability */
   font-size: 1.2rem;
 }
+
 .quiz-header {
-  color: #333;
+  color: #333; /* Dark color for good contrast */
   margin-bottom: 1.5rem;
-  line-height: 1.4;
+  line-height: 1.4; /* Increase line height for better readability */
   font-size: 1.5rem;
 }
 
 .quiz-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Spread question number and score apart */
   margin-bottom: 10px;
   color: #555;
 }
 
-/* ANSWER BUTTONS */
+/* ANSWER BUTTONS - Quiz option styling */
 
 .answers-container {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between buttons */
   margin-bottom: 25px;
 }
 
 .answer-btn {
-  background-color: #f397e7;
+  background-color: #f397e7; /* Light pink default state */
   color: #333;
-  border: 2px solid #eadbc8;
+  border: 2px solid #eadbc8; /* Border adds visual definition */
   border-radius: 10px;
   padding: 1rem;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.3s ease;
+  cursor: pointer; /* Shows this is clickable */
+  text-align: left; /* Aligns answer text to the left */
+  transition: all 0.3s ease; /* Smooth color change on hover */
 }
 
 .answer-btn:hover {
-  background-color: #eadbc8;
+  background-color: #eadbc8; /* Darker shade on hover for feedback */
   border-color: #dac0ae;
 }
+
 .answer-btn.correct {
   background-color: #fbfbfb;
-  border-color: #a4c2a5;
-  color: #55b774;
+  border-color: #a4c2a5; /* Green border to indicate correct */
+  color: #55b774; /* Green text */
 }
 
 .answer-btn.incorrect {
   background-color: #fbfbfb;
-  border-color: #e79a9a;
-  color: #d9534f;
+  border-color: #e79a9a; /* Red border to indicate wrong */
+  color: #d9534f; /* Red text */
 }
 
-/* PROGRESS BAR */
+/* PROGRESS BAR - Visual feedback of quiz completion */
 
 .progress-bar {
   width: 100%;
   height: 10px;
-  background-color: #e36666;
+  background-color: #e36666; /* Red background (unfilled portion) */
   border-radius: 5px;
-  overflow: hidden;
+  overflow: hidden; /* Hides overflow from progress fill */
   margin-top: 20px;
 }
 
 .progress {
   height: 100%;
-  width: 0;
-  background-color: #56cf94;
-  transition: width 0.3s ease;
+  width: 0; /* JavaScript will update this percentage */
+  background-color: #56cf94; /* Green for progress (filled portion) */
+  transition: width 0.3s ease; /* Smooth animation as progress increases */
 }
 
-/* RESULT SCREEN */
+/* RESULT SCREEN - Final score display */
 
 #result-screen h1 {
   margin-bottom: 30px;
@@ -127,12 +130,13 @@ body {
 }
 
 .result-info {
-  background-color: #eadbc8;
+  background-color: #eadbc8; /* Light background to highlight results */
   font-size: 1.2rem;
   color: #555;
   margin-bottom: 30px;
   border-radius: 10px;
 }
+
 .result-info p {
   margin-bottom: 1rem;
   font-size: 1.2rem;
@@ -141,30 +145,32 @@ body {
 
 #result-message {
   font-size: 1.5rem;
-  color: #ff9c11;
-  font-weight: 600;
+  color: #ff9c11; /* Orange matches brand color */
+  font-weight: 600; /* Bold for emphasis */
 }
 
+/* BUTTONS - Global button styling */
+
 button {
-  background-color: #ff9c11;
-  color: #fff;
+  background-color: #ff9c11; /* Brand orange color */
+  color: #fff; /* White text for contrast */
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem; /* Padding makes button easier to click */
   border-radius: 10px;
   cursor: pointer;
   font-size: 1.1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /* Smooth color change on hover */
 }
 
 button:hover {
-  background-color: #d45b28;
+  background-color: #d45b28; /* Darker orange on hover for feedback */
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE DESIGN - Mobile optimization */
 
 @media (max-width: 500px) {
   .container {
-    padding: 1rem;
+    padding: 1rem; /* Reduce padding on small screens for more space */
   }
 
   .quiz-header {
@@ -177,3 +183,4 @@ button:hover {
       font-size: 2rem;
     }
   }
+}
