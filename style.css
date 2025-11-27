@@ -107,9 +107,8 @@ body {
 /* PROGRESS BAR - Visual feedback of quiz completion */
 
 .progress-bar {
-  width: 100%;
   height: 10px;
-  background-color: #e36666; /* Red background (unfilled portion) */
+  background-color: #f8f0e5; /* Red background (unfilled portion) */
   border-radius: 5px;
   overflow: hidden; /* Hides overflow from progress fill */
   margin-top: 20px;
