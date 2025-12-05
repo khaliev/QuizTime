@@ -31,7 +31,7 @@ const quizQuestions = [
     question: "Which planet is known as the Red Planet?",
     answers: [
       { text: "Venus", correct: false },
-      { text: "Mars", correct: true }, // Correct answer
+      { text: "Mars", correct: true },
       { text: "Jupiter", correct: false },
       { text: "Saturn", correct: false },
     ],
@@ -42,7 +42,7 @@ const quizQuestions = [
       { text: "Atlantic Ocean", correct: false },
       { text: "Indian Ocean", correct: false },
       { text: "Arctic Ocean", correct: false },
-      { text: "Pacific Ocean", correct: true }, // Correct answer
+      { text: "Pacific Ocean", correct: true },
     ],
   },
   {
@@ -50,7 +50,7 @@ const quizQuestions = [
     answers: [
       { text: "Java", correct: false },
       { text: "Python", correct: false },
-      { text: "Banana", correct: true }, // Correct answer
+      { text: "Banana", correct: true },
       { text: "JavaScript", correct: false },
     ],
   },
@@ -59,7 +59,7 @@ const quizQuestions = [
     answers: [
       { text: "Go", correct: false },
       { text: "Gd", correct: false },
-      { text: "Au", correct: true }, // Correct answer
+      { text: "Au", correct: true },
       { text: "Ag", correct: false },
     ],
   },
@@ -82,7 +82,46 @@ maxScoreSpan.textContent = quizQuestions.length;
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
-  console.log("Quiz started");
+  // reset quiz state / reset variables
+  currentQuestionIndex = 0;
+  score = 0;
+  scoreSpan.textContent = 0;
+
+  startScreen.classList.remove("active");
+  quizScreen.classList.add("active");
+
+  showQuestion();
+}
+
+function showQuestion() {
+  // reset state
+  answersDisabled = false;
+
+  const currentQuestion = quizQuestions[currentQuestionIndex];
+  currentQuestionSpan.textContent = currentQuestionIndex + 1;
+
+  const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
+  progressBar.style.width = progressPercent + "%";
+  questionText.textContent = currentQuestion.question;
+  // todo: clear previous answers
+  answersContainer.innerHTML = "";
+
+  currentQuestion.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.textContent = answer.text;
+    button.classList.add("answer-btn");
+
+    // what is a dataset ? => it's a way to store custom data attributes on HTML elements
+    button.dataset.correct = answer.correct; // Store whether this answer is correct
+    button.addEventListener("click", selectAnswer);
+    answersContainer.appendChild(button);
+  });
+}
+
+function selectAnswer(event) {
+  // optimization check to prevent multiple clicks
+  if (answersDisabled) return;
+  answersDisabled = true; // Disable further clicks until processing is done
 }
 restartButton.addEventListener("click", restartQuiz);
 
